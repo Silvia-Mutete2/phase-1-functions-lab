@@ -5,22 +5,27 @@ function distanceFromHqInBlocks(distance) {
 
 //distanceFromHqInFeet
 function distanceFromHqInFeet(distance) {
-	return Math.abs(distanceFromHqInBlocks(distance))*264;
+	return (parseInt(distanceFromHqInBlocks(distance),10) *264);
 }
 
 //distanceTravelledInFeet
 function distanceTravelledInFeet(start,destination) {
-	return Math.abs(start-destination)*264;
+	
+if (start >destination){
+	let distance = start -destination;
+}else {
+	let distance = destination - start;
 }
-
+return (parseInt((destination), 10) *264);
+}
 //calculatesFarePrice
 function calculatesFarePrice(start,destination) {
-	const distance = distanceTravelledInFeet(start,destination)
+	let distance = distanceTravelledInFeet(start,destination)
 	if (distance < 400) {
 		return 0;
 	}
 	else if (distance >= 400 && distance <= 2000) {
-		return (distance - 400) * .02;
+		return (distance - 400) * 0.02;
 	}
 	else if (distance > 2000 && distance < 2500) {
 		return 25;
